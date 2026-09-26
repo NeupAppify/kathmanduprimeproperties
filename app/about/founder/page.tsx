@@ -22,7 +22,7 @@ export default function FounderPage() {
           <h2 className="font-display text-3xl leading-tight tracking-[-0.04em] text-[color:var(--foreground)] sm:text-4xl">Sourav Poudyal</h2>
           <p className="mt-2 text-sm font-medium text-[color:var(--muted)]">Founder and principal advisor</p>
           <div className="mt-6 space-y-5 text-base leading-8 text-[color:var(--muted)]">
-            <p>Sanjay leads Kathmandu Prime Properties with a calm, practical approach to property decisions across Kathmandu Valley.</p>
+            <p>Sourav leads Kathmandu Prime Properties with a calm, practical approach to property decisions across Kathmandu Valley.</p>
             <p>His work brings together market context, considered presentation, and clear communication so buyers, sellers, and investors can move forward with confidence.</p>
             <p>From valuation and strategy to negotiation and handover, he keeps the process focused on what matters most to each client.</p>
           </div>

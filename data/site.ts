@@ -127,7 +127,7 @@ export const aboutHighlights = [
 
 export const teamMembers = [
   {
-    name: "Sanjay Basnet",
+    name: "Sourav Basnet",
     role: "Founder and principal advisor",
     focus: "Strategy, valuation, and seller representation",
     bio:

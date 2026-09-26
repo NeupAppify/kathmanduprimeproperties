@@ -73,7 +73,7 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`top-0 z-50 border-[color:var(--border)] transition-[height,background-color,border-color,backdrop-filter] duration-700 ease-[cubic-bezier(0.2,0.9,0.2,1)] ${
+      className={`top-0 z-50 border-[color:var(--border)] shadow-[0_5px_22px_rgba(37,28,24,0.11)] transition-[height,background-color,border-color,backdrop-filter,box-shadow] duration-700 ease-[cubic-bezier(0.2,0.9,0.2,1)] ${
         isMenuOpen
           ? "fixed inset-x-0 h-dvh border-b-0 bg-[color:var(--surface)]/98 backdrop-blur-2xl"
           : "sticky border-b bg-[color:var(--surface)]/95 backdrop-blur"
@@ -110,10 +110,10 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 aria-current={activeNavHref === link.href ? "page" : undefined}
-                className={`relative inline-flex h-11 items-center justify-center rounded-full px-4 text-sm font-semibold transition-all duration-200 before:absolute before:left-4 before:right-4 before:top-0 before:h-0.5 before:rounded-full before:transition-opacity before:duration-200 hover:-translate-y-0.5 hover:bg-[color:var(--surface-strong)] hover:text-[color:var(--foreground)] ${
+                className={`relative inline-flex h-11 items-center justify-center rounded-full px-4 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:bg-[color:var(--surface-strong)] hover:text-[color:var(--foreground)] ${
                   activeNavHref === link.href
-                    ? "bg-[color:var(--surface-strong)] text-[color:var(--foreground)] before:bg-[color:var(--primary)] before:opacity-100"
-                    : "text-[color:var(--muted)] before:bg-transparent before:opacity-0"
+                    ? "bg-[color:var(--surface-strong)] text-[color:var(--foreground)]"
+                    : "text-[color:var(--muted)]"
                 }`}
               >
                 {link.label}
