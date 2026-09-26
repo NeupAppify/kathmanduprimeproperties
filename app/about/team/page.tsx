@@ -37,7 +37,7 @@ export default async function TeamPage() {
         {teamMembers.map((member) => (
           <Link
             key={member.id}
-            href={`/team/${member.slug}`}
+            href={`/about/team/${member.slug}`}
             className="group"
           >
             <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.1rem] bg-[color:var(--primary-soft)] font-display text-5xl text-[color:var(--primary)]">
@@ -66,6 +66,14 @@ export default async function TeamPage() {
             </div>
           </Link>
         ))}
+      </section>
+
+      <section className="mt-16 flex flex-col gap-5 border-t border-[color:var(--border)] pt-10 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="font-display text-3xl tracking-[-0.03em] text-[color:var(--foreground)]">We might be hiring.</p>
+          <p className="mt-2 text-sm leading-7 text-[color:var(--muted)]">Check our open positions.</p>
+        </div>
+        <Link href="/about/career" className="inline-flex w-fit rounded-full bg-[color:var(--foreground)] px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5">View open positions</Link>
       </section>
     </div>
   );

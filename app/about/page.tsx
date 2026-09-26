@@ -1,90 +1,114 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { aboutHighlights, serviceAreas, sellingSteps } from "@/data/site";
+import { logica } from "@neup/logica";
+import type { SitesMemberDirectoryItem } from "@neup/logica/sites";
 
 export const metadata: Metadata = {
   title: "About us",
-  description: "Learn about the approach behind Kathmandu Prime Properties.",
+  description: "Learn about Kathmandu Prime Properties and our advisory approach.",
 };
 
-const principles = [
-  ["01", "Read the market", "Every recommendation starts with the street, the buyer, and the moment—not a generic formula."],
-  ["02", "Make it understandable", "We turn pricing, presentation, and next steps into clear decisions people can act on."],
-  ["03", "Stay close", "From the first conversation to handover, responsive communication keeps momentum on your side."],
+const commitments = [
+  ["We listen first.", "We learn what you need before suggesting properties or next steps."],
+  ["We present properties thoughtfully.", "Clear information helps you compare options with confidence."],
+  ["We keep communication direct.", "You receive responsive guidance throughout your property journey."],
 ] as const;
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  let teamMembers: SitesMemberDirectoryItem[] = [];
+
+  try {
+    const response = await logica.sites().members.get();
+    teamMembers = response.ok && response.body.success
+      ? response.body.members ?? []
+      : [];
+  } catch {
+    teamMembers = [];
+  }
+
   return (
     <div className="mx-auto w-full max-w-7xl px-6 py-8 lg:px-8 lg:py-12">
-      <section className="grid gap-10 border-b border-[color:var(--border)] pb-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-20 lg:pb-20">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">About Kathmandu Prime</p>
-          <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[0.94] tracking-[-0.045em] text-[color:var(--foreground)] sm:text-6xl lg:text-7xl">Property advice with a point of view.</h1>
-        </div>
-        <div className="space-y-5 text-base leading-8 text-[color:var(--muted)]">
-          <p>Kathmandu Prime Properties is a focused real estate studio for people who want less noise and better decisions.</p>
-          <p>We bring together local market understanding, thoughtful presentation, and steady guidance across Kathmandu Valley.</p>
+      <section className="border-b border-[color:var(--border)] pb-10">
+        <div className="max-w-3xl space-y-2">
+          <h1 className="font-display text-4xl tracking-[-0.035em] text-[color:var(--foreground)] sm:text-5xl">About us</h1>
+        <h2 className="font-display text-3xl leading-tight tracking-[-0.04em] text-[color:var(--foreground)] sm:text-4xl">Property decisions deserve clear guidance.</h2>
         </div>
       </section>
 
-      <section className="grid gap-10 py-16 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+      <section className="grid gap-10 py-16 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-20">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">How we work</p>
-          <h2 className="mt-4 max-w-sm font-display text-4xl leading-tight tracking-[-0.04em] text-[color:var(--foreground)] sm:text-5xl">Calm thinking. Stronger outcomes.</h2>
-        </div>
-        <div className="divide-y divide-[color:var(--border)] border-y border-[color:var(--border)]">
-          {principles.map(([number, title, description]) => (
-            <div key={number} className="grid gap-4 py-7 sm:grid-cols-[5rem_1fr]">
-              <span className="font-display text-3xl text-[color:var(--primary)]">{number}</span>
-              <div>
-                <h3 className="font-display text-3xl tracking-[-0.03em] text-[color:var(--foreground)]">{title}</h3>
-                <p className="mt-2 max-w-xl text-sm leading-7 text-[color:var(--muted)]">{description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="rounded-[1.5rem] bg-[color:var(--primary)] px-6 py-10 text-white lg:px-10 lg:py-12">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.08em] text-white/70">Our promise</p>
-            <h2 className="mt-4 font-display text-4xl leading-tight tracking-[-0.04em] sm:text-5xl">Premium does not need to feel complicated.</h2>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {aboutHighlights.map((highlight, index) => (
-              <div key={highlight} className="border-t border-white/25 pt-4">
-                <span className="text-xs font-semibold tracking-[0.08em] text-white/60">0{index + 1}</span>
-                <p className="mt-3 text-sm leading-6 text-white/90">{highlight}</p>
-              </div>
-            ))}
+          <h2 className="max-w-md font-display text-3xl leading-tight tracking-[-0.04em] text-[color:var(--foreground)] sm:text-4xl">Clear guidance for your next move.</h2>
+          <div className="mt-6 space-y-5 text-base leading-8 text-[color:var(--muted)]">
+            <p>At Kathmandu Prime Properties, we help people make informed decisions about buying, selling, and investing in property across Kathmandu Valley.</p>
+            <p>Every property journey is different. We take time to understand your priorities, share relevant options, and guide you through the process with clear communication and a considered approach.</p>
           </div>
         </div>
+        <div className="relative flex min-h-[26rem] items-center justify-center overflow-hidden rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(110,31,45,0.12),rgba(245,238,230,0.96))] p-10">
+          <Image src="/logo.png" alt="Kathmandu Prime Properties" width={420} height={420} className="h-56 w-56 object-contain opacity-90 sm:h-72 sm:w-72" />
+        </div>
       </section>
 
-      <section className="grid gap-10 py-16 lg:grid-cols-[1fr_1.4fr] lg:items-start">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">From first look to handover</p>
-          <h2 className="mt-4 font-display text-4xl tracking-[-0.04em] text-[color:var(--foreground)] sm:text-5xl">A process with purpose.</h2>
-          <p className="mt-5 max-w-md text-sm leading-7 text-[color:var(--muted)]">We work across {serviceAreas.join(", ")} with a simple rhythm that keeps every decision moving forward.</p>
+      <section className="border-y border-[color:var(--border)] py-16">
+        <div className="max-w-3xl space-y-2">
+          <h2 className="font-display text-3xl leading-tight tracking-[-0.04em] text-[color:var(--foreground)] sm:text-4xl">Local understanding. Personal advice.</h2>
+          <p className="text-base leading-8 text-[color:var(--muted)]">Kathmandu’s property market can feel complex. Our local knowledge helps us discuss locations, property options, and market context in a way that supports your goals—whether you are looking for a home, preparing to sell, or exploring an investment.</p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-3">
-          {sellingSteps.map((step, index) => (
-            <div key={step.title} className="rounded-[1.1rem] bg-[color:var(--surface)] p-5">
-              <span className="text-xs font-semibold text-[color:var(--primary)]">0{index + 1}</span>
-              <h3 className="mt-8 font-display text-2xl text-[color:var(--foreground)]">{step.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">{step.description}</p>
-            </div>
+      </section>
+
+      <section className="grid gap-10 border-b border-[color:var(--border)] py-16 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-20">
+        <div>
+          <h2 className="font-display text-3xl leading-tight tracking-[-0.04em] text-[color:var(--foreground)] sm:text-4xl">How we work</h2>
+          <ul className="mt-6 space-y-5 text-base leading-8 text-[color:var(--muted)]">
+            {commitments.map(([title, description]) => <li key={title}><strong className="font-semibold text-[color:var(--foreground)]">{title}</strong> {description}</li>)}
+          </ul>
+        </div>
+        <div className="relative flex min-h-[22rem] items-center justify-center overflow-hidden rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(110,31,45,0.12),rgba(245,238,230,0.96))] p-10">
+          <Image src="/logo.png" alt="Kathmandu Prime Properties" width={360} height={360} className="h-52 w-52 object-contain opacity-90 sm:h-64 sm:w-64" />
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="flex items-end justify-between gap-5">
+          <h2 className="font-display text-3xl leading-tight tracking-[-0.04em] text-[color:var(--foreground)] sm:text-4xl">Our Team</h2>
+        </div>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {teamMembers.slice(0, 3).map((member) => (
+            <Link key={member.id} href={`/about/team/${member.slug}`} className="group">
+              <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.1rem] bg-[color:var(--primary-soft)] font-display text-5xl text-[color:var(--primary)]">
+                {member.assetId?.startsWith("http") ? (
+                  <img src={member.assetId} alt={member.name} className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" />
+                ) : (
+                  <span className="transition-transform duration-500 ease-out group-hover:scale-110">{member.name.split(" ").map((part) => part[0]).join("")}</span>
+                )}
+              </div>
+              <div className="pt-4">
+                <h3 className="font-display text-2xl leading-8 text-[color:var(--foreground)]">{member.name}</h3>
+                <p className="mt-1 text-xs font-medium text-[color:var(--muted)]">{member.role || "Team member"}</p>
+              </div>
+            </Link>
           ))}
+          <Link href="/about/team" className="group">
+            <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.1rem] bg-[color:var(--primary-soft)] font-display text-5xl text-[color:var(--primary)]">
+              <span aria-hidden="true" className="inline-block transition-transform duration-500 ease-out group-hover:scale-110">→</span>
+            </div>
+            <div className="pt-4">
+              <h3 className="font-display text-2xl leading-8 text-[color:var(--foreground)]">View all members</h3>
+              <p className="mt-1 text-xs font-medium text-[color:var(--muted)]">Meet the full team</p>
+            </div>
+          </Link>
         </div>
       </section>
 
       <section className="flex flex-col gap-5 border-t border-[color:var(--border)] pt-10 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="font-display text-3xl tracking-[-0.03em] text-[color:var(--foreground)]">Start with a clear conversation.</p>
-          <p className="mt-2 text-sm text-[color:var(--muted)]">Your next property decision can be simpler.</p>
+          <p className="font-display text-3xl tracking-[-0.03em] text-[color:var(--foreground)]">A trusted partner for your next move.</p>
+          <p className="mt-2 max-w-xl text-sm leading-7 text-[color:var(--muted)]">From your first inquiry to the next step, our team is here to make the process clearer and more personal.</p>
         </div>
-        <Link href="/properties" className="inline-flex w-fit rounded-full bg-[color:var(--foreground)] px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5">View properties</Link>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/properties" className="inline-flex w-fit rounded-full bg-[color:var(--foreground)] px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5">Explore properties</Link>
+          <Link href="/about/team" className="inline-flex w-fit rounded-full border border-[color:var(--border)] px-5 py-3 text-sm font-semibold text-[color:var(--foreground)] transition-transform hover:-translate-y-0.5">Speak with our team</Link>
+        </div>
       </section>
     </div>
   );

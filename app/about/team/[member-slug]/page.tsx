@@ -57,7 +57,7 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
   return (
     <main className="mx-auto w-full max-w-5xl px-6 py-8 lg:px-8 lg:py-12">
       <Link
-        href="/team"
+        href="/about/team"
         className="text-xs font-semibold uppercase tracking-[0.08em] text-[color:var(--muted)] transition-colors hover:text-[color:var(--foreground)]"
       >
         Back to our team
@@ -97,7 +97,7 @@ export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
               Explore properties
             </Link>
             <Link
-              href="/team"
+              href="/about/team"
               className="rounded-full border border-[color:var(--border)] px-5 py-3 text-sm font-semibold text-[color:var(--foreground)] transition-colors hover:bg-[color:var(--surface)]"
             >
               Meet the whole team

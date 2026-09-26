@@ -1,14 +1,14 @@
 export const navLinks = [
   { href: "/properties", label: "Properties" },
   { href: "/about", label: "About us" },
-  { href: "/team", label: "Our team" },
+  { href: "/about/team", label: "Our team" },
 ] as const;
 
 export const footerLinks = [
   { href: "/", label: "Home" },
   { href: "/properties", label: "Properties" },
   { href: "/about", label: "About us" },
-  { href: "/team", label: "Our team" },
+  { href: "/about/team", label: "Our team" },
 ] as const;
 
 export const serviceAreas = ["Kathmandu", "Lalitpur", "Bhaktapur"] as const;
