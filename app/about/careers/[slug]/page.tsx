@@ -35,6 +35,9 @@ export default async function CareerDetailPage({ params }: CareerPageProps) {
     notFound();
   }
 
+  const qualifications =
+    typeof career.qualifications === "string" ? career.qualifications : null;
+
   return (
     <div className="mx-auto w-full max-w-7xl px-6 py-8 lg:px-8 lg:py-12">
       <Link href="/about/career" className="text-xs font-semibold uppercase tracking-[0.08em] text-[color:var(--muted)] transition-colors hover:text-[color:var(--foreground)]">
@@ -52,7 +55,7 @@ export default async function CareerDetailPage({ params }: CareerPageProps) {
       <section className="grid gap-10 py-16 lg:grid-cols-[1fr_auto] lg:items-start lg:gap-20">
         <div className="max-w-2xl space-y-5 text-base leading-8 text-[color:var(--muted)]">
           {career.description ? <p>{career.description}</p> : <p>We are looking for thoughtful people to join our team and help create a clearer property experience.</p>}
-          {career.qualifications && typeof career.qualifications === "string" && <p>{career.qualifications}</p>}
+          {qualifications ? <p>{qualifications}</p> : null}
         </div>
         <a href="mailto:hello@kathmanduprimeproperties.com" className="inline-flex w-fit rounded-full bg-[color:var(--primary)] px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5">Apply for this position</a>
       </section>

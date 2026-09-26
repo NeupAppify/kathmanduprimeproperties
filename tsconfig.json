@@ -21,7 +21,8 @@
     "paths": {
       "@/*": ["./*"],
       "@neup/*": ["./@neup/*"],
-      "@base/*": ["./@base/*"]
+      "@base/*": ["./@base/*"],
+      "@shared/*": ["./@shared/*"]
     }
   },
   "include": [
