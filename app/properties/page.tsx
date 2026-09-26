@@ -17,11 +17,11 @@ export default async function PropertiesPage() {
 
   return (
     <div className="mx-auto w-full max-w-7xl px-6 py-8 lg:px-8 lg:py-12">
-      <section className="max-w-3xl space-y-4">
-        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--primary)]">
+      <section className="max-w-3xl space-y-2">
+        <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">
           Properties
         </p>
-        <h1 className="font-display text-5xl tracking-tight text-[color:var(--foreground)] sm:text-6xl">
+        <h1 className="font-display text-4xl tracking-[-0.035em] text-[color:var(--foreground)] sm:text-5xl">
           {propertiesPageHero.title}
         </h1>
         <p className="text-lg leading-8 text-[color:var(--muted)]">
@@ -49,10 +49,10 @@ export default async function PropertiesPage() {
       <section className="mt-16 rounded-[1.25rem] border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-sm lg:p-8">
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--primary)]">
+            <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">
               Buying and selling flow
             </p>
-            <h2 className="mt-3 font-display text-4xl tracking-tight text-[color:var(--foreground)]">
+            <h2 className="mt-3 font-display text-3xl tracking-[-0.035em] text-[color:var(--foreground)]">
               Structured process, cleaner outcomes.
             </h2>
           </div>
@@ -62,7 +62,7 @@ export default async function PropertiesPage() {
                 key={step.title}
                 className="rounded-3xl border border-[color:var(--border)] bg-white/70 p-5"
               >
-                <div className="text-sm font-semibold uppercase tracking-[0.22em] text-[color:var(--primary)]">
+                <div className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">
                   0{index + 1}
                 </div>
                 <h3 className="mt-3 font-display text-2xl text-[color:var(--foreground)]">

@@ -26,7 +26,7 @@ for the agency identifier.
 
 ::end
 */
-import { logica } from "@/logica";
+import { logica } from "@neup/logica";
 
 const DEFAULT_AGENCY_ID = "2a1511da-1092-4c1a-bb4a-973c301d2670";
 

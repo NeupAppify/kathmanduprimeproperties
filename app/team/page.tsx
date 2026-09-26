@@ -1,20 +1,32 @@
 import type { Metadata } from "next";
-import { teamMembers } from "@/data/site";
+import Link from "next/link";
+import { logica } from "@neup/logica";
+import type { SitesMemberDirectoryItem } from "@neup/logica/sites";
 
 export const metadata: Metadata = {
   title: "Our team",
   description: "Meet the team behind Kathmandu Prime Properties.",
 };
 
-export default function TeamPage() {
+export default async function TeamPage() {
+  let teamMembers: SitesMemberDirectoryItem[] = [];
+
+  try {
+    const response = await logica.sites().members.get();
+    console.log("[team] Logica sites members response:", response);
+    teamMembers = response.ok && response.body.success
+      ? response.body.members ?? []
+      : [];
+  } catch (error) {
+    console.error("[team] Logica sites members request failed:", error);
+    teamMembers = [];
+  }
+
   return (
     <div className="mx-auto w-full max-w-7xl px-6 py-8 lg:px-8 lg:py-12">
-      <section className="max-w-3xl space-y-4">
-        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--primary)]">
-          Our team
-        </p>
-        <h1 className="font-display text-5xl tracking-tight text-[color:var(--foreground)] sm:text-6xl">
-          The people shaping every property conversation.
+      <section className="max-w-3xl space-y-2">
+        <h1 className="font-display text-4xl tracking-[-0.035em] text-[color:var(--foreground)] sm:text-5xl">
+          Meet the team behind us!
         </h1>
         <p className="text-lg leading-8 text-[color:var(--muted)]">
           A focused team delivering clear advice, polished listings, and steady execution.
@@ -23,29 +35,36 @@ export default function TeamPage() {
 
       <section className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {teamMembers.map((member) => (
-          <article
-            key={member.name}
-            className="rounded-[1.1rem] border border-[color:var(--border)] bg-[color:var(--surface-strong)] p-6 shadow-sm"
+          <Link
+            key={member.id}
+            href={`/team/${member.slug}`}
+            className="group"
           >
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[color:var(--primary-soft)] font-display text-xl text-[color:var(--primary)]">
-              {member.name
-                .split(" ")
-                .map((part) => part[0])
-                .join("")}
+            <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.1rem] bg-[color:var(--primary-soft)] font-display text-5xl text-[color:var(--primary)]">
+              {member.assetId?.startsWith("http") ? (
+                <img
+                  src={member.assetId}
+                  alt={member.name}
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                />
+              ) : (
+                <span className="inline-block transition-transform duration-500 ease-out group-hover:scale-110">
+                  {member.name
+                    .split(" ")
+                    .map((part) => part[0])
+                    .join("")}
+                </span>
+              )}
             </div>
-            <h2 className="mt-5 font-display text-[2rem] leading-9 text-[color:var(--foreground)]">
-              {member.name}
-            </h2>
-            <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--primary)]">
-              {member.role}
-            </p>
-            <p className="mt-4 text-sm leading-7 text-[color:var(--muted)]">
-              {member.bio}
-            </p>
-            <div className="mt-5 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-4 text-sm text-[color:var(--muted)]">
-              {member.focus}
+            <div className="pt-4">
+              <h2 className="relative inline-block font-display text-2xl leading-8 text-[color:var(--foreground)] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[color:var(--foreground)] after:transition-transform after:duration-300 after:content-[''] group-hover:after:scale-x-100">
+                {member.name}
+              </h2>
+              <p className="mt-1 text-xs font-medium uppercase tracking-[0.08em] text-[color:var(--muted)]">
+                {member.role || "Team member"}
+              </p>
             </div>
-          </article>
+          </Link>
         ))}
       </section>
     </div>

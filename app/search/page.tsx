@@ -130,10 +130,10 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   return (
     <div className="mx-auto w-full max-w-7xl px-6 py-8 lg:px-8 lg:py-12">
       <section className="rounded-[1.6rem] border border-[color:var(--border)] bg-[color:var(--surface-strong)] p-6 shadow-sm lg:p-8">
-        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[color:var(--primary)]">
+        <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">
           Search
         </p>
-        <h1 className="mt-3 font-display text-4xl tracking-tight text-[color:var(--foreground)] sm:text-5xl">
+        <h1 className="mt-3 font-display text-3xl tracking-[-0.035em] text-[color:var(--foreground)] sm:text-4xl">
           For your property requirements.
         </h1>
 
@@ -159,10 +159,10 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           <section className="mt-10">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[color:var(--primary)]">
+                <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">
                   Agents
                 </p>
-                <h2 className="mt-2 font-display text-3xl tracking-tight text-[color:var(--foreground)] sm:text-4xl">
+                <h2 className="mt-2 font-display text-2xl tracking-[-0.035em] text-[color:var(--foreground)] sm:text-3xl">
                   Agent view
                 </h2>
               </div>
@@ -236,10 +236,10 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           <section className="mt-12">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[color:var(--primary)]">
+                <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">
                   Properties
                 </p>
-                <h2 className="mt-2 font-display text-3xl tracking-tight text-[color:var(--foreground)] sm:text-4xl">
+                <h2 className="mt-2 font-display text-2xl tracking-[-0.035em] text-[color:var(--foreground)] sm:text-3xl">
                   Feed view
                 </h2>
               </div>

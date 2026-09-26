@@ -294,7 +294,7 @@ function FeedPost({ property, priority = false }: FeedPostProps) {
               </span>
             </div>
           )}
-          <div className="truncate text-xs uppercase tracking-[0.22em] text-[color:var(--muted)]">
+          <div className="truncate text-xs uppercase tracking-[0.08em] text-[color:var(--muted)]">
             {property.location}
           </div>
         </div>
@@ -348,7 +348,7 @@ function FeedPost({ property, priority = false }: FeedPostProps) {
         ) : (
           <div className="flex min-h-[18rem] w-full items-end bg-[linear-gradient(180deg,rgba(110,31,45,0.05),rgba(33,24,21,0.28)),linear-gradient(135deg,#f1e3d4,#fdfaf6)] p-6">
             <div className="rounded-[1.5rem] bg-white/88 px-4 py-3 shadow-sm backdrop-blur">
-              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--primary)]">
+              <div className="text-xs font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">
                 Visual pending
               </div>
               <div className="mt-2 font-display text-[1.8rem] tracking-[-0.02em] text-[color:var(--foreground)]">

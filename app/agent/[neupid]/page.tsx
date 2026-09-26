@@ -82,7 +82,7 @@ export default async function AgentProfilePage({ params }: AgentPageProps) {
       <section className="rounded-[1.8rem] border border-[color:var(--border)] bg-[color:var(--surface-strong)] p-6 shadow-sm lg:p-10">
         <Link
           href="/"
-          className="inline-flex items-center text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--muted)] transition-colors hover:text-[color:var(--foreground)]"
+          className="inline-flex items-center text-xs font-semibold uppercase tracking-[0.08em] text-[color:var(--muted)] transition-colors hover:text-[color:var(--foreground)]"
         >
           Back to feed
         </Link>
@@ -115,7 +115,7 @@ export default async function AgentProfilePage({ params }: AgentPageProps) {
 
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-              <h1 className="text-3xl font-semibold tracking-tight text-[color:var(--foreground)] sm:text-[2rem]">
+              <h1 className="text-2xl font-semibold tracking-[-0.02em] text-[color:var(--foreground)] sm:text-3xl">
                 {agent.neupId ? `@${agent.neupId}` : agent.displayName}
               </h1>
               <div className="inline-flex h-8 items-center rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-4 text-sm font-semibold text-[color:var(--foreground)]">
@@ -159,10 +159,10 @@ export default async function AgentProfilePage({ params }: AgentPageProps) {
 
       <section className="mt-10 space-y-5">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[color:var(--primary)]">
+          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">
             Agent feed
           </p>
-          <h2 className="mt-2 font-display text-3xl tracking-tight text-[color:var(--foreground)] sm:text-4xl">
+          <h2 className="mt-2 font-display text-2xl tracking-[-0.035em] text-[color:var(--foreground)] sm:text-3xl">
             Posts represented by {agent.displayName}
           </h2>
         </div>

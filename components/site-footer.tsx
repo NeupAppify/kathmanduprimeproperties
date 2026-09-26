@@ -20,7 +20,7 @@ export function SiteFooter() {
                 className="h-12 w-12 object-contain"
               />
             </span>
-            <div className="font-display text-3xl text-[color:var(--foreground)]">
+            <div className="font-display text-3xl tracking-[-0.04em] text-[color:var(--foreground)]">
               Kathmandu Prime Properties
             </div>
           </div>
@@ -37,7 +37,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <div className="text-sm font-semibold uppercase tracking-[0.22em] text-[color:var(--primary)]">
+          <div className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">
             Navigate
           </div>
           <div className="mt-4 flex flex-col gap-3">
@@ -54,7 +54,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <div className="text-sm font-semibold uppercase tracking-[0.22em] text-[color:var(--primary)]">
+          <div className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">
             Service areas
           </div>
           <div className="mt-4 flex flex-wrap gap-3">

@@ -1,0 +1,11 @@
+{
+    "type": "web",
+    "exists": true,
+    "domain": "kathmanduprimeproperties.com",
+    "basepath": "/",
+    "projectId": "19ab1a1c-60be-4632-9023-09ac5786054b",
+    "permissions": [
+        "geolocation",
+        "notifications"
+    ]
+}

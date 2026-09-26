@@ -18,10 +18,10 @@ export default function NotFound() {
   return (
     <section className="mx-auto w-full max-w-7xl px-6 py-10 lg:px-8 lg:py-14">
       <div className="max-w-3xl rounded-[2rem] border border-[color:var(--border)] bg-[color:var(--surface-strong)] p-8 shadow-sm sm:p-10">
-        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[color:var(--primary)]">
+        <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">
           404
         </p>
-        <h1 className="mt-3 font-display text-4xl leading-[0.98] tracking-tight text-[color:var(--foreground)] sm:text-5xl">
+        <h1 className="mt-3 font-display text-3xl leading-[0.98] tracking-[-0.035em] text-[color:var(--foreground)] sm:text-4xl">
           This page could not be found.
         </h1>
         <p className="mt-5 max-w-2xl text-sm leading-7 text-[color:var(--muted)] sm:text-base">
