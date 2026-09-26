@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { logica } from "@neup/logica";
+import { people } from "@neup/logica/people";
 
 type TeamMemberPageProps = {
   params: Promise<{
@@ -11,14 +11,14 @@ type TeamMemberPageProps = {
 
 async function getMember(slug: string) {
   try {
-    const response = await logica.sites().members.get();
+    const response = await people().members.get();
 
     if (!response.ok || !response.body.success) {
       return null;
     }
 
     return (
-      response.body.members?.find(
+      (Array.isArray(response.body.data) ? response.body.data : []).find(
         (member) => member.slug.trim().toLowerCase() === slug.trim().toLowerCase(),
       ) ?? null
     );

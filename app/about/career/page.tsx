@@ -1,12 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { people } from "@neup/logica/people";
+import type { SitesCareer } from "@neup/logica/people/careers";
 
 export const metadata: Metadata = {
   title: "Careers",
   description: "Explore career opportunities with Kathmandu Prime Properties.",
 };
 
-export default function CareerPage() {
+export default async function CareerPage() {
+  let careers: SitesCareer[] = [];
+
+  try {
+    const response = await people().careers.get();
+    careers = response.ok && response.body.success ? response.body.data ?? [] : [];
+  } catch {
+    careers = [];
+  }
+
   return (
     <div className="mx-auto w-full max-w-7xl px-6 py-8 lg:px-8 lg:py-12">
       <section className="border-b border-[color:var(--border)] pb-10">
@@ -27,10 +38,22 @@ export default function CareerPage() {
         <div className="rounded-[1.5rem] bg-[color:var(--primary)] p-8 text-white lg:p-10">
           <p className="text-sm font-semibold uppercase tracking-[0.08em] text-white/70">Open positions</p>
           <h2 className="mt-4 font-display text-3xl leading-tight tracking-[-0.04em] sm:text-4xl">Check our open positions.</h2>
-          <p className="mt-5 text-sm leading-7 text-white/80">We do not have a listed opening right now, but we are always interested in meeting thoughtful people.</p>
+          <p className="mt-5 text-sm leading-7 text-white/80">{careers.length > 0 ? `${careers.length} open ${careers.length === 1 ? "position" : "positions"} available.` : "We do not have a listed opening right now, but we are always interested in meeting thoughtful people."}</p>
           <a href="mailto:hello@kathmanduprimeproperties.com" className="mt-7 inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-[color:var(--primary)] transition-transform hover:-translate-y-0.5">Send your introduction</a>
         </div>
       </section>
+
+      {careers.length > 0 && (
+        <section className="grid gap-4 py-16 sm:grid-cols-2">
+          {careers.map((career) => (
+            <article key={career.id} className="rounded-[1.1rem] border border-[color:var(--border)] bg-[color:var(--surface)] p-6">
+              <h2 className="font-display text-2xl text-[color:var(--foreground)]">{career.title}</h2>
+              <p className="mt-2 text-sm text-[color:var(--muted)]">{[career.location, career.type].filter(Boolean).join(" · ") || "Kathmandu Valley"}</p>
+              {career.description && <p className="mt-4 text-sm leading-7 text-[color:var(--muted)]">{career.description}</p>}
+            </article>
+          ))}
+        </section>
+      )}
 
       <section className="grid gap-8 rounded-[1.5rem] bg-[color:var(--primary)] p-7 text-white lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
         <div>

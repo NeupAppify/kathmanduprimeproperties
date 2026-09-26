@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { logica } from "@neup/logica";
-import type { SitesMemberDirectoryItem } from "@neup/logica/sites";
+import { people } from "@neup/logica/people";
+import type { PeopleMember } from "@neup/logica/people/members";
 
 export const metadata: Metadata = {
   title: "Our team",
@@ -9,16 +9,14 @@ export const metadata: Metadata = {
 };
 
 export default async function TeamPage() {
-  let teamMembers: SitesMemberDirectoryItem[] = [];
+  let teamMembers: PeopleMember[] = [];
 
   try {
-    const response = await logica.sites().members.get();
-    console.log("[team] Logica sites members response:", response);
-    teamMembers = response.ok && response.body.success
-      ? response.body.members ?? []
+    const response = await people().members.get();
+    teamMembers = response.ok && response.body.success && Array.isArray(response.body.data)
+      ? response.body.data
       : [];
-  } catch (error) {
-    console.error("[team] Logica sites members request failed:", error);
+  } catch {
     teamMembers = [];
   }
 
