@@ -74,7 +74,7 @@ export default async function AboutPage() {
         </div>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {teamMembers.slice(0, 3).map((member) => (
-            <Link key={member.id} href={`/about/team/${member.slug}`} className="group">
+            <Link key={member.slug} href={`/about/team/${member.slug}`} className="group">
               <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[1.1rem] bg-[color:var(--primary-soft)] font-display text-5xl text-[color:var(--primary)]">
                 {member.assetId?.startsWith("http") ? (
                   <img src={member.assetId} alt={member.name} className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" />

@@ -34,7 +34,7 @@ export default async function TeamPage() {
       <section className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {teamMembers.map((member) => (
           <Link
-            key={member.id}
+            key={member.slug}
             href={`/about/team/${member.slug}`}
             className="group"
           >
