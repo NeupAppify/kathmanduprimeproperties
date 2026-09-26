@@ -12,24 +12,9 @@ export default async function PropertiesPage() {
 
   return (
     <div className="mx-auto w-full max-w-7xl px-6 py-8 lg:px-8 lg:py-12">
-      <section className="grid gap-8 border-b border-[color:var(--border)] pb-10 lg:grid-cols-[1fr_auto] lg:items-end">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[color:var(--primary)]">The collection</p>
-          <h1 className="mt-3 max-w-3xl font-display text-5xl leading-[0.95] tracking-[-0.045em] text-[color:var(--foreground)] sm:text-6xl">Find a place that feels like yours.</h1>
-          <p className="mt-5 max-w-xl text-base leading-8 text-[color:var(--muted)]">A considered selection of homes, land, and investment opportunities across Kathmandu Valley.</p>
-        </div>
-        <div className="flex gap-3 lg:pb-1">
-          <div className="rounded-full border border-[color:var(--border)] px-4 py-2 text-sm text-[color:var(--muted)]">{properties.length} {properties.length === 1 ? "listing" : "listings"}</div>
-          <div className="rounded-full bg-[color:var(--primary)] px-4 py-2 text-sm font-semibold text-white">Kathmandu Valley</div>
-        </div>
-      </section>
-
-      <section className="flex flex-col gap-4 border-b border-[color:var(--border)] py-6 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="text-sm font-semibold text-[color:var(--foreground)]">Available now</p>
-          <p className="mt-1 text-sm text-[color:var(--muted)]">Browse the latest properties from our live feed.</p>
-        </div>
-        <div className="text-sm text-[color:var(--muted)]">Sorted by newest</div>
+      <section className="max-w-3xl space-y-2 pb-10">
+        <h1 className="font-display text-4xl tracking-[-0.035em] text-[color:var(--foreground)] sm:text-5xl">Find a place that feels like yours.</h1>
+        <p className="text-lg leading-8 text-[color:var(--muted)]">A considered selection of homes, land, and investment opportunities across Kathmandu Valley.</p>
       </section>
 
       <section className="py-10">

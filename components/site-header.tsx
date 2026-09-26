@@ -170,7 +170,7 @@ export function SiteHeader() {
           <nav className="flex flex-col border-t border-[color:var(--border)]">
             {mobileLinks.map((link, index) => (
               <Link
-                key={link.href}
+                key={`${link.href}-${link.label}`}
                 href={link.href}
                 onClick={closeMenu}
                 className={`group flex min-h-[4.5rem] items-center justify-between gap-4 px-1 text-[1.1rem] font-medium tracking-[-0.02em] text-[color:var(--foreground)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-[color:var(--primary)] ${

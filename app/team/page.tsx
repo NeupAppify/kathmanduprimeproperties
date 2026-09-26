@@ -60,7 +60,7 @@ export default async function TeamPage() {
               <h2 className="relative inline-block font-display text-2xl leading-8 text-[color:var(--foreground)] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[color:var(--foreground)] after:transition-transform after:duration-300 after:content-[''] group-hover:after:scale-x-100">
                 {member.name}
               </h2>
-              <p className="mt-1 text-xs font-medium uppercase tracking-[0.08em] text-[color:var(--muted)]">
+              <p className="mt-1 text-xs font-medium text-[color:var(--muted)]">
                 {member.role || "Team member"}
               </p>
             </div>

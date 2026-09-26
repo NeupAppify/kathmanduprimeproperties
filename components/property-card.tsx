@@ -27,12 +27,13 @@ export function PropertyCard({ property, compact = false }: PropertyCardProps) {
             </div>
           </div>
 
-          <div className="space-y-5 pt-4">
-            <div>
-              <h3 className="relative inline-block font-display text-2xl leading-tight tracking-[-0.03em] text-[color:var(--foreground)] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[color:var(--foreground)] after:transition-transform after:duration-300 after:content-[''] group-hover:after:scale-x-100">
-                {property.title} @ {property.priceLabel}
-              </h3>
-            </div>
+          <div className="space-y-1 pt-4">
+            <h3 className="relative inline-block max-w-full truncate align-top font-display text-2xl leading-tight tracking-[-0.03em] text-[color:var(--foreground)] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[color:var(--foreground)] after:transition-transform after:duration-300 after:content-[''] group-hover:after:scale-x-100">
+              {property.title}
+            </h3>
+            <p className="text-xs font-medium text-[color:var(--muted)]">
+              At Just {property.priceLabel}
+            </p>
           </div>
         </Link>
       ) : (
