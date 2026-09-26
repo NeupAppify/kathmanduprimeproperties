@@ -32,9 +32,12 @@ export default function CareerPage() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-5 border-t border-[color:var(--border)] pt-10 sm:flex-row sm:items-center sm:justify-between">
-        <p className="font-display text-3xl tracking-[-0.03em] text-[color:var(--foreground)]">Learn more about our team.</p>
-        <Link href="/about/team" className="inline-flex w-fit rounded-full border border-[color:var(--border)] px-5 py-3 text-sm font-semibold text-[color:var(--foreground)] transition-transform hover:-translate-y-0.5">Meet the team</Link>
+      <section className="grid gap-8 rounded-[1.5rem] bg-[color:var(--primary)] p-7 text-white lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-white/70">Our team</p>
+          <h2 className="mt-3 max-w-2xl font-display text-4xl leading-tight tracking-[-0.04em] sm:text-5xl">Learn more about our team.</h2>
+        </div>
+        <Link href="/about/team" className="inline-flex w-fit rounded-full bg-white px-5 py-3 text-sm font-semibold text-[color:var(--primary)] transition-transform hover:-translate-y-0.5">Meet the team</Link>
       </section>
     </div>
   );

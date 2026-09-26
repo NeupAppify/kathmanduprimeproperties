@@ -68,12 +68,13 @@ export default async function TeamPage() {
         ))}
       </section>
 
-      <section className="mt-16 flex flex-col gap-5 border-t border-[color:var(--border)] pt-10 sm:flex-row sm:items-center sm:justify-between">
+      <section className="mt-16 grid gap-8 rounded-[1.5rem] bg-[color:var(--primary)] p-7 text-white lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
         <div>
-          <p className="font-display text-3xl tracking-[-0.03em] text-[color:var(--foreground)]">We might be hiring.</p>
-          <p className="mt-2 text-sm leading-7 text-[color:var(--muted)]">Check our open positions.</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-white/70">Careers</p>
+          <h2 className="mt-3 max-w-2xl font-display text-4xl leading-tight tracking-[-0.04em] sm:text-5xl">We might be hiring.</h2>
+          <p className="mt-3 text-sm leading-7 text-white/80">Check our open positions.</p>
         </div>
-        <Link href="/about/career" className="inline-flex w-fit rounded-full bg-[color:var(--foreground)] px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5">View open positions</Link>
+        <Link href="/about/career" className="inline-flex w-fit rounded-full bg-white px-5 py-3 text-sm font-semibold text-[color:var(--primary)] transition-transform hover:-translate-y-0.5">View open positions</Link>
       </section>
     </div>
   );

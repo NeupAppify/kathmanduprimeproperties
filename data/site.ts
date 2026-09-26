@@ -9,6 +9,7 @@ export const footerLinks = [
   { href: "/properties", label: "Properties" },
   { href: "/about", label: "About us" },
   { href: "/about/team", label: "Our team" },
+  { href: "/about/founder", label: "Meet our Founder" },
 ] as const;
 
 export const serviceAreas = ["Kathmandu", "Lalitpur", "Bhaktapur"] as const;
