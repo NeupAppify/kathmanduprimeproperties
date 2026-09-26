@@ -1,7 +1,9 @@
 export const navLinks = [
   { href: "/properties", label: "Properties" },
-  { href: "/about", label: "About us" },
-  { href: "/about/team", label: "Our team" },
+  { href: "/collections", label: "Collections" },
+  { href: "/about", label: "About Us" },
+  { href: "/search", label: "Search" },
+  { href: "/contact", label: "Contact Us" },
 ] as const;
 
 export const footerLinks = [

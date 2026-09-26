@@ -3,14 +3,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { navLinks } from "@/data/site";
 
 const LOGO_SRC = "/logo.png";
-const mobileLinks = [
-  ...navLinks,
-  { href: "/search", label: "Search" },
-  { href: "/properties", label: "Schedule viewing" },
-] as const;
+const mobileLinks = navLinks;
 
 /*
 ::neup.documentation::site-header
@@ -40,6 +37,10 @@ collapsed and expanded states and lock page scrolling while the menu is open.
 
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const activeNavHref = navLinks
+    .filter((link) => pathname === link.href || pathname.startsWith(`${link.href}/`))
+    .sort((a, b) => b.href.length - a.href.length)[0]?.href;
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
@@ -103,32 +104,22 @@ export function SiteHeader() {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden items-center gap-3 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-[color:var(--muted)] transition-colors hover:text-[color:var(--foreground)]"
+                aria-current={activeNavHref === link.href ? "page" : undefined}
+                className={`relative inline-flex h-11 items-center justify-center rounded-full px-4 text-sm font-semibold transition-all duration-200 before:absolute before:left-4 before:right-4 before:top-0 before:h-0.5 before:rounded-full before:transition-opacity before:duration-200 hover:-translate-y-0.5 hover:bg-[color:var(--surface-strong)] hover:text-[color:var(--foreground)] ${
+                  activeNavHref === link.href
+                    ? "bg-[color:var(--surface-strong)] text-[color:var(--foreground)] before:bg-[color:var(--primary)] before:opacity-100"
+                    : "text-[color:var(--muted)] before:bg-transparent before:opacity-0"
+                }`}
               >
                 {link.label}
               </Link>
             ))}
           </nav>
-
-          <div className="hidden items-center gap-3 lg:flex">
-            <Link
-              href="/search"
-              className="inline-flex h-11 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--surface-strong)] px-5 text-sm font-semibold text-[color:var(--foreground)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-[color:var(--primary)] hover:text-[color:var(--primary)]"
-            >
-              Search
-            </Link>
-            <Link
-              href="/properties"
-              className="inline-flex h-11 items-center justify-center rounded-full border border-[color:var(--primary)] bg-[color:var(--primary)] px-5 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[color:var(--primary-strong)]"
-            >
-              Schedule viewing
-            </Link>
-          </div>
 
           <button
             type="button"

@@ -37,7 +37,11 @@ export default async function CareerPage() {
               <h2 className="font-display text-2xl text-[color:var(--foreground)]">{career.title}</h2>
               <p className="mt-2 text-sm text-[color:var(--muted)]">{[career.location, career.type].filter(Boolean).join(" · ") || "Kathmandu Valley"}</p>
               {career.description && <p className="mt-4 text-sm leading-7 text-[color:var(--muted)]">{career.description}</p>}
-              <span aria-hidden="true" className="absolute right-6 top-1/2 -translate-y-1/2 text-2xl text-[color:var(--primary)] transition-transform group-hover:translate-x-1">&gt;</span>
+              <span aria-hidden="true" className="absolute right-6 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-[color:var(--surface-strong)] text-[color:var(--primary)] transition-transform duration-200 group-hover:translate-x-1">
+                <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5" aria-hidden="true">
+                  <path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
             </Link>
           ))}
           </div>
