@@ -33,10 +33,11 @@ export default async function CareerPage() {
         {careers.length > 0 ? (
           <div className="grid gap-4">
           {careers.map((career) => (
-            <Link href={`/about/careers/${career.slug}`} key={career.slug} className="block w-full rounded-[1.1rem] border border-[color:var(--border)] bg-[color:var(--surface)] p-6 transition-transform hover:-translate-y-0.5">
+            <Link href={`/about/careers/${career.slug}`} key={career.slug} className="group relative block w-full rounded-[1.1rem] border border-[color:var(--border)] bg-[color:var(--surface)] p-6 pr-16 transition-transform hover:-translate-y-0.5">
               <h2 className="font-display text-2xl text-[color:var(--foreground)]">{career.title}</h2>
               <p className="mt-2 text-sm text-[color:var(--muted)]">{[career.location, career.type].filter(Boolean).join(" · ") || "Kathmandu Valley"}</p>
               {career.description && <p className="mt-4 text-sm leading-7 text-[color:var(--muted)]">{career.description}</p>}
+              <span aria-hidden="true" className="absolute right-6 top-1/2 -translate-y-1/2 text-2xl text-[color:var(--primary)] transition-transform group-hover:translate-x-1">&gt;</span>
             </Link>
           ))}
           </div>

@@ -100,14 +100,16 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-5 border-t border-[color:var(--border)] pt-10 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mb-16 w-1/2 border-t border-[color:var(--border)]" />
+
+      <section className="grid gap-8 rounded-[1.5rem] bg-[color:var(--primary)] p-7 text-white lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
         <div>
-          <p className="font-display text-3xl tracking-[-0.03em] text-[color:var(--foreground)]">A trusted partner for your next move.</p>
-          <p className="mt-2 max-w-xl text-sm leading-7 text-[color:var(--muted)]">From your first inquiry to the next step, our team is here to make the process clearer and more personal.</p>
+          <p className="font-display text-3xl tracking-[-0.03em]">A trusted partner for your next move.</p>
+          <p className="mt-2 max-w-xl text-sm leading-7 text-white/80">From your first inquiry to the next step, our team is here to make the process clearer and more personal.</p>
         </div>
         <div className="flex flex-wrap gap-3">
-          <Link href="/properties" className="inline-flex w-fit rounded-full bg-[color:var(--foreground)] px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5">Explore properties</Link>
-          <Link href="/about/team" className="inline-flex w-fit rounded-full border border-[color:var(--border)] px-5 py-3 text-sm font-semibold text-[color:var(--foreground)] transition-transform hover:-translate-y-0.5">Speak with our team</Link>
+          <Link href="/properties" className="inline-flex w-fit rounded-full bg-white px-5 py-3 text-sm font-semibold text-[color:var(--primary)] transition-transform hover:-translate-y-0.5">Explore properties</Link>
+          <Link href="/about/team" className="inline-flex w-fit rounded-full border border-white/40 px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5">Speak with our team</Link>
         </div>
       </section>
     </div>
